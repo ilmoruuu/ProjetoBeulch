@@ -7,7 +7,8 @@ public class Pedido {
         this.pagamentoStrategy = pagamentoStrategy;
     }
 
-    public void realizarPagamento(float valor) {
-        pagamentoStrategy.realizarPagamento(valor);
+    public void realizarPagamento(float valorSerPago) {
+        pagamentoStrategy.realizarPagamento(valorSerPago);
     }
 }
+
