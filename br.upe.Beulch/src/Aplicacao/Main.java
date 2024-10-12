@@ -1,5 +1,7 @@
 package Aplicacao;
 
+import PadroesProjeto.FactoryMethod.FactoryCafe;
+import PadroesProjeto.FactoryMethod.Produto;
 import PadroesProjeto.Strategy.*;
 
 public class Main {
@@ -7,5 +9,13 @@ public class Main {
 //        Pedido novoPedido = new Pedido();
 //        novoPedido.setPagamentoStrategy(new Pix("Murilo","Nubank Pagamentos S.A",45));
 //        novoPedido.realizarPagamento(45);
+
+        FactoryCafe factoryCafe = new FactoryCafe();
+        Produto cafe = factoryCafe.criarProduto("Expresso", "2.50");
+        System.out.println(cafe);
+
+
+
+
     }
 }
