@@ -14,6 +14,7 @@ public class Especie implements PagamentoStrategy {
 
     @Override
     public void realizarPagamento(float valor) {
+
         LocalDateTime localDateTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         String dataFormatada = localDateTime.format(formatter);
@@ -23,8 +24,14 @@ public class Especie implements PagamentoStrategy {
         System.out.printf("Data e Hora: %s\n",dataFormatada);
         System.out.printf("\nPagamento de R$: %.2f\n", valor);
 
-        if (recebido > valor){
+        if (recebido >= valor){
             System.out.printf("Troco de R$: %.2f\n", (recebido-valor));
+
+        } else {
+            System.out.println("Pagamento inválido\n"+
+                    "_________________________________________");
+            throw new IllegalArgumentException("O valor recebido é inválido! Tente novamente!");
+
         }
 
         System.out.println("\nPagamento Realizado com Sucesso!\n\nObrigado! ;)");
