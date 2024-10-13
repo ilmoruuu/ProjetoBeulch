@@ -1,9 +1,8 @@
-package padroesProjeto.command;
+package PadroesProjeto.Command;
 
 import Aplicacao.Pedido;
 
-public class LivroCommand extends Command{
-
+public class ComidaCommand extends Command{
     @Override
     public Pedido execute() {
         return null;

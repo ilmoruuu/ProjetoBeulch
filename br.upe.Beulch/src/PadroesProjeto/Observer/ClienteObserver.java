@@ -1,4 +1,4 @@
-package padroesProjeto.observer;
+package PadroesProjeto.Observer;
 
 public interface ClienteObserver {
 }

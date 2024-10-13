@@ -1,4 +1,4 @@
-package padroesProjeto.command;
+package PadroesProjeto.Command;
 
 import Aplicacao.Pedido;
 

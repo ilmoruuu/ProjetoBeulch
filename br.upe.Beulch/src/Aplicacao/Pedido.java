@@ -1,7 +1,8 @@
 package Aplicacao;
 
-import padroesProjeto.observer.ClienteObserver;
-import padroesProjeto.strategy.PagamentoStrategy;
+import PadroesProjeto.FactoryMethod.Produto;
+import PadroesProjeto.Observer.ClienteObserver;
+import PadroesProjeto.Strategy.PagamentoStrategy;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,7 +12,7 @@ public class Pedido {
     private List<ClienteObserver> clientes;
     private PagamentoStrategy pagamentoStrategy;
     private double ValorPedido;
-    private List<Produto> conteudoPedido;
+    private List<PadroesProjeto.FactoryMethod.Produto> conteudoPedido;
     private String nomeCliente;
     private String cpf;
     private LocalDateTime dataHoraPedido;
