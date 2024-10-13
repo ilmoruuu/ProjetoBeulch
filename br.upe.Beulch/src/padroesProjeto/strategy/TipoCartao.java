@@ -1,4 +1,4 @@
-package PadroesProjeto.Strategy;
+package padroesProjeto.strategy;
 
 public enum TipoCartao {
     CREDITO, DEBITO;

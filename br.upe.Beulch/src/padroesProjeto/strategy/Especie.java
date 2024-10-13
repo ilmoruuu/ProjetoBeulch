@@ -1,4 +1,4 @@
-package PadroesProjeto.Strategy;
+package padroesProjeto.strategy;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
