@@ -1,4 +1,4 @@
-package PadroesProjeto.Observer;
+package PadroesProjeto.Observer.Notificacao.Interface;
 
 public interface Subject {
 

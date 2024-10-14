@@ -1,6 +1,7 @@
-package PadroesProjeto.Observer;
+package PadroesProjeto.Observer.Notificacao.Interface;
 
-import PadroesProjeto.Strategy.Pedido;
+import Aplicacao.Pedido;
+import Aplicacao.Produto;
 
 public interface ClienteObserver {
 

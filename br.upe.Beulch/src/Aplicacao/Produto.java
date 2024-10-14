@@ -1,4 +1,7 @@
-package PadroesProjeto.Observer;
+package Aplicacao;
+
+import PadroesProjeto.Observer.Notificacao.Interface.ClienteObserver;
+import PadroesProjeto.Observer.Notificacao.Interface.Subject;
 
 import java.util.ArrayList;
 import java.util.List;

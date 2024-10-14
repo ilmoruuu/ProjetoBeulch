@@ -1,10 +1,8 @@
-package PadroesProjeto.Observer;
+package Aplicacao;
 
-import PadroesProjeto.Strategy.Pedido;
+import PadroesProjeto.Observer.Notificacao.Interface.ClienteObserver;
 
-import java.util.List;
-
-public class Cliente implements ClienteObserver{
+public class Cliente implements ClienteObserver {
 
     private String nome;
     private String email;

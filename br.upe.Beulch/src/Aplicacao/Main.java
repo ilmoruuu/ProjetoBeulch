@@ -1,9 +1,5 @@
 package Aplicacao;
 
-import PadroesProjeto.Observer.Cliente;
-import PadroesProjeto.Observer.Produto;
-import PadroesProjeto.Strategy.Pedido;
-
 public class Main {
     public static void main(String[] args) {
         Cliente cliente1 = new Cliente("João", "joao@email.com", "123");

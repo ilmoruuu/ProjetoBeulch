@@ -2,8 +2,8 @@ package Aplicacao;
 
 import PadroesProjeto.Strategy.Pagamento.Interface.PagamentoStrategy;
 
-import PadroesProjeto.Observer.ClienteObserver;
-import PadroesProjeto.Observer.Subject;
+import PadroesProjeto.Observer.Notificacao.Interface.ClienteObserver;
+import PadroesProjeto.Observer.Notificacao.Interface.Subject;
 
 import java.util.ArrayList;
 import java.util.List;
