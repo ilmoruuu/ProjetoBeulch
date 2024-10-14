@@ -1,4 +1,6 @@
-package PadroesProjeto.Strategy;
+package Aplicacao;
+
+import PadroesProjeto.Strategy.Pagamento.Interface.PagamentoStrategy;
 
 public class Pedido {
     private PagamentoStrategy pagamentoStrategy;
