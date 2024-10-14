@@ -6,21 +6,23 @@ import java.util.List;
 public class Produto implements Subject {
 
     private String nome;
-    private Float precoProduto;
     private boolean disponivel;
+    private Float precoAtual;
+    private Float precoAnterior;
     private List<ClienteObserver> clienteObservers;
 
 
-    public Produto(String nome, Float precoProduto) {
+    public Produto(String nome, Float precoAtual) {
         this.nome = nome;
-        this.precoProduto = precoProduto;
+        this.precoAtual = precoAtual;
         this.clienteObservers = new ArrayList<>();
         this.disponivel = true;
+        this.precoAnterior = precoAtual;
     }
 
     @Override
     public void adicionarObservador(ClienteObserver clienteObserver) {
-        if(!clienteObservers.contains(clienteObserver)){
+        if (!clienteObservers.contains(clienteObserver)) {
             clienteObservers.add(clienteObserver);
         }
     }
@@ -33,13 +35,15 @@ public class Produto implements Subject {
     @Override
     public void notificar() {
         for (ClienteObserver clienteObserver : clienteObservers) {
-            clienteObserver.atualizar();
+            clienteObserver.atualizar(this);
         }
     }
 
     public void setDisponibilidade(boolean disponivel) {
-        this.disponivel = disponivel;
-        notificar();
+        if (this.disponivel != disponivel) {
+            this.disponivel = disponivel;
+            notificar();
+        }
     }
 
     public boolean isDisponivel() {
@@ -54,12 +58,20 @@ public class Produto implements Subject {
         this.nome = nome;
     }
 
-    public Float getPrecoProduto() {
-        return precoProduto;
+    public Float getPrecoAtual() {
+        return precoAtual;
     }
 
-    public void setPrecoProduto(Float precoProduto) {
-        this.precoProduto = precoProduto;
+    public Float getPrecoAnterior() {
+        return precoAnterior;
+    }
+
+    public void setPrecoProduto(Float novoPreco) {
+        if (!this.precoAtual.equals(novoPreco)) {
+            this.precoAnterior = this.precoAtual;
+            this.precoAtual = novoPreco;
+            notificar();
+        }
     }
 
 }
