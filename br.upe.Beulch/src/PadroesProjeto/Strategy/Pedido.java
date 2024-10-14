@@ -14,6 +14,7 @@ public class Pedido implements Subject {
 
     public Pedido() {
         this.clienteObservers = new ArrayList<>();
+        this.confirmado = false;
     }
 
 
@@ -45,8 +46,10 @@ public class Pedido implements Subject {
     }
 
     public void setConfirmado(boolean confirmado) {
-        this.confirmado = confirmado;
-        notificar();
+        if(this.confirmado != confirmado) {
+            this.confirmado = confirmado;
+            notificar();
+        }
     }
 
     public boolean isConfirmado() {
