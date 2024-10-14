@@ -1,9 +1,8 @@
-package PadroesProjeto.Observer;
+package Aplicacao;
 
+import PadroesProjeto.Observer.ClienteObserver;
 
-import Aplicacao.Pedido;
-
-public class Cliente implements ClienteObserver{
+public class Cliente implements ClienteObserver {
 
     private String nome;
     private String email;
@@ -16,12 +15,12 @@ public class Cliente implements ClienteObserver{
     }
 
     @Override
-    public void atualizar(ProdutoObserver produto) {
+    public void atualizar(Produto produto) {
         if (!produto.isDisponivel()) {
             System.out.println("O produto " + produto.getNome() + " está indisponível no momento.");
         } else {
             System.out.println("O produto " + produto.getNome() + " está disponível no momento.");
-            if (!produto.getPrecoAtual().equals(produto.getPrecoAnterior())) {
+            if (!(produto.getPrecoAtual() == produto.getPrecoAnterior())) {
                 System.out.println("O preço do produto " + produto.getNome() + " mudou!");
                 System.out.println("Novo preço: R$ " + produto.getPrecoAtual());
             }
