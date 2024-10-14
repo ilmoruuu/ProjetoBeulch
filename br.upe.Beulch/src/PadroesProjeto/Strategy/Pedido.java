@@ -16,7 +16,6 @@ public class Pedido implements Subject {
         this.clienteObservers = new ArrayList<>();
     }
 
-
     public void setPagamentoStrategy(PagamentoStrategy pagamentoStrategy) {
         this.pagamentoStrategy = pagamentoStrategy;
     }
