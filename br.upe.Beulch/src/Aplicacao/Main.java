@@ -1,6 +1,6 @@
 package Aplicacao;
 
-import PadroesProjeto.FactoryMethod.Cafe;
+import PadroesProjeto.FactoryMethod.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,8 +15,14 @@ public class Main {
         * */
         //Pedido pedido = new Pedido();
 
-        produto1.adicionarObservador(cliente1);
+        Factory cafeFactory= new FactoryCafe();
+        Produto cafe = cafeFactory.criarProduto("Espresso", 22);
 
+        Factory livroFactory = new FactoryLivro();
+        Produto livro = livroFactory.criarProduto("Padroes de Projeto", 35678);
+
+
+        produto1.adicionarObservador(cliente1);
         produto1.setDisponibilidade(true);
         produto1.setPrecoProduto(30f);
         produto1.setDisponibilidade(false);
