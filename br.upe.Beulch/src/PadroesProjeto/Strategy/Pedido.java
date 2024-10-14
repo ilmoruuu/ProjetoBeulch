@@ -17,7 +17,6 @@ public class Pedido implements Subject {
         this.confirmado = false;
     }
 
-
     public void setPagamentoStrategy(PagamentoStrategy pagamentoStrategy) {
         this.pagamentoStrategy = pagamentoStrategy;
     }
