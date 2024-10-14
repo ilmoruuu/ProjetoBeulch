@@ -1,5 +1,6 @@
 package PadroesProjeto.Command;
 
+
 public class VerHistoricoCommand implements Command{
 
     @Override

@@ -1,35 +1,89 @@
 package Aplicacao;
 
-import PadroesProjeto.FactoryMethod.Produto;
 import PadroesProjeto.Observer.ClienteObserver;
+import PadroesProjeto.Observer.Subject;
 import PadroesProjeto.Strategy.PagamentoStrategy;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
-public class Pedido {
+public class Pedido implements Subject {
 
     private List<ClienteObserver> clientes;
     private PagamentoStrategy pagamentoStrategy;
-    private double ValorPedido;
-    private List<PadroesProjeto.FactoryMethod.Produto> conteudoPedido;
+    private double valorPedido;
+    private List<Produto> conteudoPedido;
     private String nomeCliente;
-    private String cpf;
     private LocalDateTime dataHoraPedido;
+    private boolean confirmado;
 
-    public Pedido(List<ClienteObserver> clientes, PagamentoStrategy pagamentoStrategy,
-                  double valorPedido, List<Produto> conteudoPedido, String nomeCliente,
-                  String cpf, LocalDateTime dataHoraPedido) {
-        this.clientes = clientes;
+    public Pedido(PagamentoStrategy pagamentoStrategy,
+                  List<Produto> conteudoPedido, String nomeCliente,
+                  LocalDateTime dataHoraPedido) {
+        this.clientes = new ArrayList<>();
         this.pagamentoStrategy = pagamentoStrategy;
-        this.ValorPedido = valorPedido;
         this.conteudoPedido = conteudoPedido;
         this.nomeCliente = nomeCliente;
-        this.cpf = cpf;
         this.dataHoraPedido = dataHoraPedido;
+        calcularPagamento();
+        this.confirmado = false;
     }
 
-    // Geters e Seters de cada um desses atributos
+    @Override
+    public void adicionarObservador(ClienteObserver clienteObserver) {
+        if (!clientes.contains(clienteObserver)) {
+            clientes.add(clienteObserver);
+        }
+    }
+
+    @Override
+    public void removerObservador(ClienteObserver clienteObserver) {
+        clientes.remove(clienteObserver);
+    }
+
+    @Override
+    public void notificar() {
+        for (ClienteObserver clienteObserver : clientes) {
+            clienteObserver.atualizar(this);
+        }
+    }
+
+    public void calcularPagamento(){
+        double acc = 0;
+        for (Produto p : conteudoPedido){
+            acc += p.getPrecoAtual();
+        }
+        this.valorPedido = acc;
+    }
+
+    public List<ClienteObserver> getCliente() {
+        return clientes;
+    }
+
+    public boolean isConfirmado() {
+        return confirmado;
+    }
+
+    public PagamentoStrategy getPagamentoStrategy() {
+        return pagamentoStrategy;
+    }
+
+    public double getValorPedido() {
+        return valorPedido;
+    }
+
+    public List<Produto> getConteudoPedido() {
+        return conteudoPedido;
+    }
+
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public LocalDateTime getDataHoraPedido() {
+        return dataHoraPedido;
+    }
 
     public void setPagamentoStrategy(PagamentoStrategy pagamentoStrategy) {
         this.pagamentoStrategy = pagamentoStrategy;
