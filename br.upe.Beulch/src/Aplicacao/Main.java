@@ -1,11 +1,23 @@
 package Aplicacao;
 
-import PadroesProjeto.Strategy.*;
+import PadroesProjeto.Observer.Cliente;
+import PadroesProjeto.Observer.Produto;
+import PadroesProjeto.Strategy.Pedido;
 
 public class Main {
     public static void main(String[] args) {
-//        Pedido pedido = new Pedido();
-//        pedido.setPagamentoStrategy(new Especie("",70));
-//        pedido.realizarPagamento(60);
+        Cliente cliente1 = new Cliente("João", "joao@email.com", "123");
+        Cliente cliente2 = new Cliente("Pedro", "pedro@email.com", "456");
+
+        Produto produto1 = new Produto("café", 3f);
+        Pedido pedido = new Pedido();
+
+        produto1.adicionarObservador(cliente1);
+
+        produto1.setDisponibilidade(true);
+        produto1.setPrecoProduto(30f);
+        produto1.setDisponibilidade(false);
+        produto1.setDisponibilidade(true);
+
     }
 }
