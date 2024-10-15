@@ -53,8 +53,9 @@ public class Cafe implements Produto {
         return precoAtual;
     }
 
-    public void setPrecoAtual(float precoAtual) {
-        this.precoAtual = precoAtual;
+    public void setPrecoAtual(float novoPreco) {
+        this.precoAnterior = precoAtual;
+        precoAtual = novoPreco;
     }
 
     public float getPrecoAnterior() {
@@ -71,24 +72,20 @@ public class Cafe implements Produto {
     }
 
     @Override
-    public void setDisponibilidade(boolean disponibilidade) {
-
+    public void setDisponibilidade(boolean disponivel) {
+        if(!(this.disponivel == disponivel)){
+            this.disponivel = disponivel;
+            notificar();
+        }
     }
 
     @Override
     public void setPrecoProduto(float valor) {
-
+        if(!(this.precoAtual == valor)){
+            precoAnterior = precoAtual;
+            precoAtual = valor;
+            notificar();
+        }
     }
 
-    public void setDisponivel(boolean disponivel) {
-        this.disponivel = disponivel;
-    }
-
-    public List<ClienteObserver> getClienteObservers() {
-        return clienteObservers;
-    }
-
-    public void setClienteObservers(List<ClienteObserver> clienteObservers) {
-        this.clienteObservers = clienteObservers;
-    }
 }
