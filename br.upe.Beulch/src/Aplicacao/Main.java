@@ -1,7 +1,7 @@
 package Aplicacao;
 
-import PadroesProjeto.Command.Command;
-import PadroesProjeto.Command.FazerPedidoCommand;
+import Aplicacao.entidades.Pedido;
+import PadroesProjeto.Strategy.Interface.PagamentoStrategy;
 
 public class Main {
     public static void main(String[] args) {
