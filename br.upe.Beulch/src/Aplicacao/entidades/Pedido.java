@@ -12,7 +12,7 @@ public class Pedido implements Subject {
 
     private List<ClienteObserver> clientes;
     private PagamentoStrategy pagamentoStrategy;
-    private double valorPedido;
+    private float valorPedido;
     private List<Produto> conteudoPedido;
     private String nomeCliente;
     private LocalDateTime dataHoraPedido;
@@ -26,7 +26,6 @@ public class Pedido implements Subject {
         this.conteudoPedido = conteudoPedido;
         this.nomeCliente = nomeCliente;
         this.dataHoraPedido = dataHoraPedido;
-        calcularPagamento();
         this.confirmado = false;
     }
 
@@ -49,12 +48,24 @@ public class Pedido implements Subject {
         }
     }
 
-    public void calcularPagamento(){
-        double acc = 0;
+    public float calcularPagamento(){
+        float acc = 0;
         for (Produto p : conteudoPedido){
             acc += p.getPrecoAtual();
         }
-        this.valorPedido = acc;
+        return acc;
+    }
+
+    public void setPagamentoStrategy(PagamentoStrategy pagamentoStrategy) {
+        this.pagamentoStrategy = pagamentoStrategy;
+    }
+
+    public void realizarPagamento(float valorSerPago) {
+        pagamentoStrategy.realizarPagamento(valorSerPago);
+    }
+
+    public void setValorPedido(float valorPedido) {
+        this.valorPedido = valorPedido;
     }
 
     public List<ClienteObserver> getCliente() {
@@ -69,7 +80,7 @@ public class Pedido implements Subject {
         return pagamentoStrategy;
     }
 
-    public double getValorPedido() {
+    public float getValorPedido() {
         return valorPedido;
     }
 
@@ -85,12 +96,8 @@ public class Pedido implements Subject {
         return dataHoraPedido;
     }
 
-    public void setPagamentoStrategy(PagamentoStrategy pagamentoStrategy) {
-        this.pagamentoStrategy = pagamentoStrategy;
-    }
-
-    public void realizarPagamento(float valorSerPago) {
-        pagamentoStrategy.realizarPagamento(valorSerPago);
+    public void setConteudoPedido(List<Produto> conteudoPedido) {
+        this.conteudoPedido = conteudoPedido;
     }
 }
 
