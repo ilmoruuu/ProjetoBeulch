@@ -39,4 +39,9 @@ public class Especie implements PagamentoStrategy {
         System.out.println("\nPagamento Realizado com Sucesso!\n\nObrigado! ;)");
         System.out.println("_________________________________________");
     }
+
+    @Override
+    public String toString(){
+        return "Dinheiro em espécie";
+    }
 }

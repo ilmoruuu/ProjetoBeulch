@@ -37,4 +37,9 @@ public class Pix implements PagamentoStrategy {
         System.out.println("\nPagamento Realizado com Sucesso!\n\nObrigado! ;)");
         System.out.println("_____________________________________");
     }
+
+    @Override
+    public String toString(){
+        return "Pagamento em pix";
+    }
 }

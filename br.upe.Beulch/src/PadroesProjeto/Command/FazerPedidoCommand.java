@@ -105,6 +105,7 @@ public class FazerPedidoCommand implements Command{
                     forma = new Cartao(numeroCartao, cliente.getNome(), validade,
                             cvv, soma, TipoCartao.DEBITO, parcelas);
                 }
+
                 forma.realizarPagamento(soma);
                 break;
             case 3:

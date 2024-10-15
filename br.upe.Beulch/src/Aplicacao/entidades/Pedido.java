@@ -99,5 +99,6 @@ public class Pedido implements Subject {
     public void setConteudoPedido(List<Produto> conteudoPedido) {
         this.conteudoPedido = conteudoPedido;
     }
+
 }
 
