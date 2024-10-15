@@ -18,9 +18,7 @@ public class Pedido implements Subject {
     private LocalDateTime dataHoraPedido;
     private boolean confirmado;
 
-    public Pedido(PagamentoStrategy pagamentoStrategy,
-                  List<Produto> conteudoPedido, String nomeCliente,
-                  LocalDateTime dataHoraPedido) {
+    public Pedido() {
         this.clientes = new ArrayList<>();
         this.pagamentoStrategy = pagamentoStrategy;
         this.conteudoPedido = conteudoPedido;
@@ -72,10 +70,6 @@ public class Pedido implements Subject {
         return clientes;
     }
 
-    public boolean isConfirmado() {
-        return confirmado;
-    }
-
     public PagamentoStrategy getPagamentoStrategy() {
         return pagamentoStrategy;
     }
@@ -99,6 +93,5 @@ public class Pedido implements Subject {
     public void setConteudoPedido(List<Produto> conteudoPedido) {
         this.conteudoPedido = conteudoPedido;
     }
-
 }
 
