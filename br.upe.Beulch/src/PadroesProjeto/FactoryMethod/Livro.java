@@ -8,14 +8,13 @@ import java.util.List;
 public class Livro implements Produto {
 
     private String nome;
-    private float precoAtual;
+    private float precoAtual = 200;
     private float precoAnterior;
     private boolean disponivel;
     private List<ClienteObserver> clienteObservers;
 
-    public Livro(String nome, float precoAtual) {
+    public Livro(String nome) {
         this.nome = nome;
-        this.precoAtual = precoAtual;
         this.clienteObservers = new ArrayList<>();
         this.disponivel = true;
         this.precoAnterior = precoAtual;
@@ -71,12 +70,12 @@ public class Livro implements Produto {
 
     @Override
     public void setDisponibilidade(boolean disponibilidade) {
-
+        this.disponivel = disponibilidade;
     }
 
     @Override
     public void setPrecoProduto(float valor) {
-
+        this.precoAtual = valor;
     }
 
     public void setDisponivel(boolean disponivel) {

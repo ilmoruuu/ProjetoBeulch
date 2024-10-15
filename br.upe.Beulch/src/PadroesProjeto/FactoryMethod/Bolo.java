@@ -8,88 +8,88 @@ import java.util.List;
 
 public class Bolo implements Produto {
 
-        private String nome;
-        private float precoAtual;
-        private float precoAnterior;
-        private boolean disponivel;
-        private List<ClienteObserver> clienteObservers;
 
-        public Bolo(String nome, float precoAtual) {
-            this.nome = nome;
-            this.precoAtual = precoAtual;
-            this.clienteObservers = new ArrayList<>();
-            this.disponivel = true;
-            this.precoAnterior = precoAtual;
+    private String nome;
+    private float precoAtual = 12;
+    private float precoAnterior;
+    private boolean disponivel;
+    private List<ClienteObserver> clienteObservers;
+
+    public Bolo(String nome) {
+        this.nome = nome;
+        this.clienteObservers = new ArrayList<>();
+        this.disponivel = true;
+        this.precoAnterior = precoAtual;
+    }
+
+    @Override
+    public void adicionarObservador(ClienteObserver clienteObserver) {
+        if (!clienteObservers.contains(clienteObserver)) {
+            clienteObservers.add(clienteObserver);
         }
+    }
 
-        @Override
-        public void adicionarObservador(ClienteObserver clienteObserver) {
-            if (!clienteObservers.contains(clienteObserver)) {
-                clienteObservers.add(clienteObserver);
-            }
+    @Override
+    public void removerObservador(ClienteObserver clienteObserver) {
+        clienteObservers.remove(clienteObserver);
+    }
+
+    @Override
+    public void notificar() {
+        for (ClienteObserver clienteObserver : clienteObservers) {
+            clienteObserver.atualizar(this);
         }
+    }
 
-        @Override
-        public void removerObservador(ClienteObserver clienteObserver) {
-            clienteObservers.remove(clienteObserver);
-        }
+    public String getNome() {
+        return nome;
+    }
 
-        @Override
-        public void notificar() {
-            for (ClienteObserver clienteObserver : clienteObservers) {
-                clienteObserver.atualizar(this);
-            }
-        }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-        public String getNome() {
-            return nome;
-        }
+    public float getPrecoAtual() {
+        return precoAtual;
+    }
 
-        public void setNome(String nome) {
-            this.nome = nome;
-        }
+    public void setPrecoAtual(float precoAtual) {
+        this.precoAtual = precoAtual;
+    }
 
-        public float getPrecoAtual() {
-            return precoAtual;
-        }
+    public float getPrecoAnterior() {
+        return precoAnterior;
+    }
 
-        public void setPrecoAtual(float precoAtual) {
-            this.precoAtual = precoAtual;
-        }
+    public void setPrecoAnterior(float precoAnterior) {
+        this.precoAnterior = precoAnterior;
+    }
 
-        public float getPrecoAnterior() {
-            return precoAnterior;
-        }
+    @Override
+    public boolean isDisponivel() {
+        return disponivel;
+    }
 
-        public void setPrecoAnterior(float precoAnterior) {
-            this.precoAnterior = precoAnterior;
-        }
+    @Override
+    public void setDisponibilidade(boolean disponibilidade) {
+        this.disponivel = disponibilidade;
+    }
 
-        @Override
-        public boolean isDisponivel() {
-            return disponivel;
-        }
+    @Override
+    public void setPrecoProduto(float valor) {
+        this.precoAtual = valor;
+    }
 
-        @Override
-        public void setDisponibilidade(boolean disponibilidade) {
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
 
-        }
+    public List<ClienteObserver> getClienteObservers() {
+        return clienteObservers;
+    }
 
-        @Override
-        public void setPrecoProduto(float valor) {
-
-        }
-
-        public void setDisponivel(boolean disponivel) {
-            this.disponivel = disponivel;
-        }
-
-        public List<ClienteObserver> getClienteObservers() {
-            return clienteObservers;
-        }
-
-        public void setClienteObservers(List<ClienteObserver> clienteObservers) {
-            this.clienteObservers = clienteObservers;
-        }
+    public void setClienteObservers(List<ClienteObserver> clienteObservers) {
+        this.clienteObservers = clienteObservers;
+    }
 
 }

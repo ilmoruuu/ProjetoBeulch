@@ -4,6 +4,7 @@ import Aplicacao.entidades.Pedido;
 import Aplicacao.entidades.Cliente;
 
 import javax.sound.midi.Soundbank;
+import java.util.Scanner;
 
 public class FazerPedidoCommand implements Command{
 
@@ -21,8 +22,12 @@ public class FazerPedidoCommand implements Command{
     *  */
     @Override
     public void execute() {
-        System.out.println("O que você deseja fazer?");
-        System.out.println("[1] Fazer pedido");
-        System.out.println("[2] Olhar histórico");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Você deseja um café, um bolo ou um livro?");
+        System.out.println("""
+                [1] para café
+                [2] para bolo
+                [3] para livro
+                """);
     }
 }
