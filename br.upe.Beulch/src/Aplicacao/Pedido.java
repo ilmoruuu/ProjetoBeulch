@@ -1,24 +1,89 @@
 package Aplicacao;
 
-import PadroesProjeto.Strategy.Pagamento.Interface.PagamentoStrategy;
-
 import PadroesProjeto.Observer.Notificacao.Interface.ClienteObserver;
 import PadroesProjeto.Observer.Notificacao.Interface.Subject;
+import PadroesProjeto.Strategy.Pagamento.Interface.PagamentoStrategy;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido implements Subject {
 
+    private List<ClienteObserver> clientes;
     private PagamentoStrategy pagamentoStrategy;
+    private double valorPedido;
+    private List<Produto> conteudoPedido;
+    private String nomeCliente;
+    private LocalDateTime dataHoraPedido;
     private boolean confirmado;
-    private List<ClienteObserver> clienteObservers;
 
-    public Pedido() {
-        this.clienteObservers = new ArrayList<>();
+    public Pedido(PagamentoStrategy pagamentoStrategy,
+                  List<Produto> conteudoPedido, String nomeCliente,
+                  LocalDateTime dataHoraPedido) {
+        this.clientes = new ArrayList<>();
+        this.pagamentoStrategy = pagamentoStrategy;
+        this.conteudoPedido = conteudoPedido;
+        this.nomeCliente = nomeCliente;
+        this.dataHoraPedido = dataHoraPedido;
+        calcularPagamento();
         this.confirmado = false;
     }
 
+    @Override
+    public void adicionarObservador(ClienteObserver clienteObserver) {
+        if (!clientes.contains(clienteObserver)) {
+            clientes.add(clienteObserver);
+        }
+    }
+
+    @Override
+    public void removerObservador(ClienteObserver clienteObserver) {
+        clientes.remove(clienteObserver);
+    }
+
+    @Override
+    public void notificar() {
+        for (ClienteObserver clienteObserver : clientes) {
+            clienteObserver.atualizar(this);
+        }
+    }
+
+    public void calcularPagamento(){
+        double acc = 0;
+        for (Produto p : conteudoPedido){
+            acc += p.getPrecoAtual();
+        }
+        this.valorPedido = acc;
+    }
+
+    public List<ClienteObserver> getCliente() {
+        return clientes;
+    }
+
+    public boolean isConfirmado() {
+        return confirmado;
+    }
+
+    public PagamentoStrategy getPagamentoStrategy() {
+        return pagamentoStrategy;
+    }
+
+    public double getValorPedido() {
+        return valorPedido;
+    }
+
+    public List<Produto> getConteudoPedido() {
+        return conteudoPedido;
+    }
+
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public LocalDateTime getDataHoraPedido() {
+        return dataHoraPedido;
+    }
 
     public void setPagamentoStrategy(PagamentoStrategy pagamentoStrategy) {
         this.pagamentoStrategy = pagamentoStrategy;
@@ -27,35 +92,4 @@ public class Pedido implements Subject {
     public void realizarPagamento(float valorSerPago) {
         pagamentoStrategy.realizarPagamento(valorSerPago);
     }
-
-    @Override
-    public void adicionarObservador(ClienteObserver clienteObserver) {
-        if (!clienteObservers.contains(clienteObserver)) {
-            clienteObservers.add(clienteObserver);
-        }
-    }
-
-    @Override
-    public void removerObservador(ClienteObserver clienteObserver) {
-        clienteObservers.remove(clienteObserver);
-    }
-
-    @Override
-    public void notificar() {
-        for (ClienteObserver clienteObserver : clienteObservers) {
-            clienteObserver.atualizar(this);
-        }
-    }
-
-    public void setConfirmado(boolean confirmado) {
-        if(this.confirmado != confirmado) {
-            this.confirmado = confirmado;
-            notificar();
-        }
-    }
-
-    public boolean isConfirmado() {
-        return confirmado;
-    }
-
 }
