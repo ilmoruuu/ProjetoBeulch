@@ -1,6 +1,12 @@
+<<<<<<<< HEAD:br.upe.Beulch/src/PadroesProjeto/Strategy/Implementacao/Pix.java
 package PadroesProjeto.Strategy.Implementacao;
 
 import PadroesProjeto.Strategy.Interface.PagamentoStrategy;
+========
+package PadroesProjeto.Strategy.Pagamento.Implementacao;
+
+import PadroesProjeto.Strategy.Pagamento.Interface.PagamentoStrategy;
+>>>>>>>> 7872c3bf47cde93d8948a3385d7fd8107adc0a5a:br.upe.Beulch/src/PadroesProjeto/Strategy/Pagamento/Implementacao/Pix.java
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

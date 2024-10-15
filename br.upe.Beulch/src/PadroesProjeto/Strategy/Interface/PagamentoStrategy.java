@@ -1,3 +1,4 @@
+
 package PadroesProjeto.Strategy.Interface;
 
 public interface PagamentoStrategy {
