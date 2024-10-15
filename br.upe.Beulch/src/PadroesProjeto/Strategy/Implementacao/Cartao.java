@@ -56,7 +56,7 @@ public class Cartao implements PagamentoStrategy {
         System.out.printf("Para:. Cafeteria Beulch \nDe:. %s\n", nomeTitular);
         System.out.printf("Data e Hora: %s\n", dataFormatada);
 
-        if (recebido < valorParcelas || recebido < valor) {
+        if (recebido < valor) {
             System.out.println("\nPagamento inválido\n" + "_________________________________________");
             throw new IllegalArgumentException("O valor recebido é inválido! Tente novamente!");
         }
@@ -68,17 +68,20 @@ public class Cartao implements PagamentoStrategy {
     }
 
     private void realizarPagamentoDebito(float valor, String dataFormatada) {
-        float valorFinal = valor + (valor * 0.025f);
-
         System.out.println("________________DÉBITO__________________");
         System.out.printf("Para:. Cafeteria Beulch \nDe:. %s\n", nomeTitular);
         System.out.printf("Data e Hora: %s\n", dataFormatada);
 
-        if (recebido < valorFinal) {
+        if (recebido < valor) {
             System.out.println("Pagamento inválido\n" + "_________________________________________");
             throw new IllegalArgumentException("O valor recebido é inválido! Tente novamente!");
         }
 
-        System.out.printf("\nPagamento de R$: %.2f\n", valorFinal);
+        System.out.printf("\nPagamento de R$: %.2f\n", (valor + (valor * 0.025f)));
+    }
+
+    @Override
+    public String toString(){
+        return "Pagamento com cartão";
     }
 }

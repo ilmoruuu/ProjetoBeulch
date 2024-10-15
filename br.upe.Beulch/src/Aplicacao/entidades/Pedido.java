@@ -93,12 +93,5 @@ public class Pedido implements Subject {
     public void setConteudoPedido(List<Produto> conteudoPedido) {
         this.conteudoPedido = conteudoPedido;
     }
-
-    public void setConfirmado(boolean confirmado) {
-        notificar();
-    }
-
-    public boolean isConfirmado() {
-        return confirmado;
-    }
 }
+

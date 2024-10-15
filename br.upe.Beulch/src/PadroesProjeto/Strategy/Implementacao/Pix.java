@@ -23,7 +23,7 @@ public class Pix implements PagamentoStrategy {
 
 
         System.out.println("________________PIX__________________");
-        System.out.printf("Para:. Cafeteria Beulch \nDe:. '%s'\nBanco:. %s\n", nomeTitular,banco);
+        System.out.printf("Para:. Cafeteria Beulch \nDe:. %s\nBanco:. %s\n", nomeTitular, banco);
         System.out.printf("Data e Hora: %s\n", dataFormatada);
 
         if (recebido < valor) {
@@ -34,5 +34,10 @@ public class Pix implements PagamentoStrategy {
 
         System.out.printf("\nPagamento de R$: %.2f\n", valor);
 
+    }
+
+    @Override
+    public String toString(){
+        return "Pagamento em pix";
     }
 }

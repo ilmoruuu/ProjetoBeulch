@@ -79,10 +79,10 @@ public class FazerPedidoCommand implements Command{
 
         switch (formaDePagamento){
             case 1:
-                 forma = new Pix(cliente.getNome(), null, soma);
-                 System.out.println("Digite o nome do seu banco");
-                 String banco = sc.next();
-                 forma.realizarPagamento(soma);
+                System.out.println("Digite o nome do seu banco");
+                String banco = sc.next();
+                forma = new Pix(cliente.getNome(), banco, soma);
+                forma.realizarPagamento(soma);
                  break;
             case 2:
                 System.out.println("Digite o número do seu cartão, validade e seu CVV");
@@ -94,17 +94,18 @@ public class FazerPedidoCommand implements Command{
                 System.out.println("Digite:\n[1] para cartão de crédito\n[2] para cartão de débito");
                 int escolhaCartao = sc.nextInt();
 
-                System.out.print("Digite a quantidade de parcelas: ");
-                int parcelas = sc.nextInt();
-
                 if (escolhaCartao == 1){
+                    System.out.print("Digite a quantidade de parcelas: ");
+                    int parcelas = sc.nextInt();
+
                     forma = new Cartao(numeroCartao, cliente.getNome(), validade,
                             cvv, soma, TipoCartao.CREDITO, parcelas);
                 }
                 else {
                     forma = new Cartao(numeroCartao, cliente.getNome(), validade,
-                            cvv, soma, TipoCartao.DEBITO, parcelas);
+                            cvv, soma, TipoCartao.DEBITO, 1);
                 }
+
                 forma.realizarPagamento(soma);
                 break;
             case 3:

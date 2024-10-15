@@ -36,4 +36,9 @@ public class Especie implements PagamentoStrategy {
 
         }
     }
+
+    @Override
+    public String toString(){
+        return "Dinheiro em espécie";
+    }
 }
