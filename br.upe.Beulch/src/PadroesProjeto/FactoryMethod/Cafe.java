@@ -1,7 +1,9 @@
 package PadroesProjeto.FactoryMethod;
 
-import Aplicacao.Produto;
-import PadroesProjeto.Observer.ClienteObserver;
+
+
+import Aplicacao.entidades.Produto;
+import PadroesProjeto.Observer.Notificacao.Interface.ClienteObserver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,14 +11,13 @@ import java.util.List;
 public class Cafe implements Produto {
 
     private String nome;
-    private float precoAtual;
+    private float precoAtual = 3;
     private float precoAnterior;
     private boolean disponivel;
     private List<ClienteObserver> clienteObservers;
 
-    public Cafe(String nome, float precoAtual) {
+    public Cafe(String nome) {
         this.nome = nome;
-        this.precoAtual = precoAtual;
         this.clienteObservers = new ArrayList<>();
         this.disponivel = true;
         this.precoAnterior = precoAtual;
@@ -53,9 +54,8 @@ public class Cafe implements Produto {
         return precoAtual;
     }
 
-    public void setPrecoAtual(float novoPreco) {
-        this.precoAnterior = precoAtual;
-        precoAtual = novoPreco;
+    public void setPrecoAtual(float precoAtual) {
+        this.precoAtual = precoAtual;
     }
 
     public float getPrecoAnterior() {

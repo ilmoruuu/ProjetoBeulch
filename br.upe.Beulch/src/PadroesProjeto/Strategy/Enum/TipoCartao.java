@@ -1,4 +1,5 @@
-package PadroesProjeto.Strategy.Pagamento.Enum;
+
+package PadroesProjeto.Strategy.Enum;
 
 public enum TipoCartao {
     CREDITO, DEBITO;

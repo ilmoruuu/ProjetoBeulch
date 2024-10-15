@@ -1,6 +1,6 @@
-package Aplicacao;
+package Aplicacao.entidades;
 
-import PadroesProjeto.Observer.Subject;
+import PadroesProjeto.Observer.Notificacao.Interface.Subject;
 
 public interface Produto extends Subject {
     public float getPrecoAtual();

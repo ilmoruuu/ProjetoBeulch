@@ -1,7 +1,7 @@
-package PadroesProjeto.Strategy.Pagamento.Implementacao;
+package PadroesProjeto.Strategy.Implementacao;
 
-import PadroesProjeto.Strategy.Pagamento.Enum.TipoCartao;
-import PadroesProjeto.Strategy.Pagamento.Interface.PagamentoStrategy;
+import PadroesProjeto.Strategy.Enum.TipoCartao;
+import PadroesProjeto.Strategy.Interface.PagamentoStrategy;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -15,7 +15,8 @@ public class Cartao implements PagamentoStrategy {
     private int parcelas;
     private final TipoCartao tipoCartao;
 
-    public Cartao(String numeroCartao, String nomeTitular, String validade, String CVV, float recebido, TipoCartao tipoCartao, int parcelas) {
+    public Cartao(String numeroCartao, String nomeTitular, String validade,
+                  String CVV, float recebido, TipoCartao tipoCartao, int parcelas) {
         this.numeroCartao = numeroCartao;
         this.nomeTitular = nomeTitular;
         this.validade = validade;
