@@ -30,15 +30,15 @@ public class Cliente implements ClienteObserver {
                 Thread.sleep(3000);
 
                 System.out.println("Seu pedido estará pronto para retirada em instantes!");
+                Thread.sleep(1000);
+
+                System.out.println("Aguarde...");
                 Thread.sleep(3000);
 
-                System.out.println("3...");
+                System.out.println("Um momento...");
                 Thread.sleep(3000);
 
-                System.out.println("2...");
-                Thread.sleep(3000);
-
-                System.out.println("1...");
+                System.out.println("Seu pedido está quase pronto...");
                 Thread.sleep(3000);
 
                 System.out.println("Seu pedido está pronto para ser retirado! Aproveite!");
