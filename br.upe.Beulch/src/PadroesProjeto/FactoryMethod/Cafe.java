@@ -1,21 +1,23 @@
 package PadroesProjeto.FactoryMethod;
 
+
+
+import Aplicacao.entidades.Produto;
 import PadroesProjeto.Observer.Notificacao.Interface.ClienteObserver;
-import Aplicacao.Produto;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cafe implements Produto {
 
     private String nome;
-    private float precoAtual;
+    private float precoAtual = 3;
     private float precoAnterior;
     private boolean disponivel;
     private List<ClienteObserver> clienteObservers;
 
-    public Cafe(String nome, float precoAtual) {
+    public Cafe(String nome) {
         this.nome = nome;
-        this.precoAtual = precoAtual;
         this.clienteObservers = new ArrayList<>();
         this.disponivel = true;
         this.precoAnterior = precoAtual;
@@ -71,12 +73,12 @@ public class Cafe implements Produto {
 
     @Override
     public void setDisponibilidade(boolean disponibilidade) {
-
+        this.disponivel = disponibilidade;
     }
 
     @Override
     public void setPrecoProduto(float valor) {
-
+        this.precoAtual = valor;
     }
 
     public void setDisponivel(boolean disponivel) {

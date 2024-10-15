@@ -1,7 +1,8 @@
-package Aplicacao;
+package Aplicacao.entidades;
 
-public class Cliente implements PadroesProjeto.Observer.Notificacao.Interface.ClienteObserver {
+import PadroesProjeto.Observer.Notificacao.Interface.ClienteObserver;
 
+public class Cliente implements ClienteObserver {
     private String nome;
     private String email;
     private String telefone;

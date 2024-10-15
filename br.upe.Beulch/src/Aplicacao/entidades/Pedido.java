@@ -1,8 +1,8 @@
-package Aplicacao;
+package Aplicacao.entidades;
 
 import PadroesProjeto.Observer.Notificacao.Interface.ClienteObserver;
 import PadroesProjeto.Observer.Notificacao.Interface.Subject;
-import PadroesProjeto.Strategy.Pagamento.Interface.PagamentoStrategy;
+import PadroesProjeto.Strategy.Interface.PagamentoStrategy;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -93,3 +93,4 @@ public class Pedido implements Subject {
         pagamentoStrategy.realizarPagamento(valorSerPago);
     }
 }
+
