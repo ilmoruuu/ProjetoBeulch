@@ -15,7 +15,8 @@ public class Cartao implements PagamentoStrategy {
     private int parcelas;
     private final TipoCartao tipoCartao;
 
-    public Cartao(String numeroCartao, String nomeTitular, String validade, String CVV, float recebido, TipoCartao tipoCartao, int parcelas) {
+    public Cartao(String numeroCartao, String nomeTitular, String validade,
+                  String CVV, float recebido, TipoCartao tipoCartao, int parcelas) {
         this.numeroCartao = numeroCartao;
         this.nomeTitular = nomeTitular;
         this.validade = validade;
