@@ -1,7 +1,7 @@
 package PadroesProjeto.Command;
 
 
-import Aplicacao.Pedido;
+import Aplicacao.entidades.Pedido;
 
 import java.util.List;
 

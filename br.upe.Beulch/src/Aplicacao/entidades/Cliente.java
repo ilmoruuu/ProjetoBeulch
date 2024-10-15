@@ -1,4 +1,4 @@
-package Aplicacao;
+package Aplicacao.entidades;
 
 import PadroesProjeto.Observer.ClienteObserver;
 

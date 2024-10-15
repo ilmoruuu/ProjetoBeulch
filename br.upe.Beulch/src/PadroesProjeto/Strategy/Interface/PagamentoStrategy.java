@@ -1,4 +1,4 @@
-package PadroesProjeto.Strategy;
+package PadroesProjeto.Strategy.Interface;
 
 public interface PagamentoStrategy {
     void realizarPagamento(float valorConta);

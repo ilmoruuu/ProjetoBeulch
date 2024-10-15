@@ -1,8 +1,8 @@
-package Aplicacao;
+package Aplicacao.entidades;
 
 import PadroesProjeto.Observer.ClienteObserver;
 import PadroesProjeto.Observer.Subject;
-import PadroesProjeto.Strategy.PagamentoStrategy;
+import PadroesProjeto.Strategy.Interface.PagamentoStrategy;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

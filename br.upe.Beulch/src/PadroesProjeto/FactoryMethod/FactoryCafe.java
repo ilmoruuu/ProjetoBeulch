@@ -1,6 +1,6 @@
 package PadroesProjeto.FactoryMethod;
 
-import Aplicacao.Produto;
+import Aplicacao.entidades.Produto;
 
 public class FactoryCafe extends Factory{
     @Override

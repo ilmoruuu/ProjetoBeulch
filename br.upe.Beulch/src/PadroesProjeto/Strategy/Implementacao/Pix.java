@@ -1,4 +1,6 @@
-package PadroesProjeto.Strategy;
+package PadroesProjeto.Strategy.Implementacao;
+
+import PadroesProjeto.Strategy.Interface.PagamentoStrategy;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

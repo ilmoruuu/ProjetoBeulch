@@ -1,7 +1,7 @@
 package PadroesProjeto.Observer;
 
-import Aplicacao.Pedido;
-import Aplicacao.Produto;
+import Aplicacao.entidades.Pedido;
+import Aplicacao.entidades.Produto;
 
 public interface ClienteObserver {
 
