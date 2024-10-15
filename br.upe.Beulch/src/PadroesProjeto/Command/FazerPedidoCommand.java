@@ -91,7 +91,7 @@ public class FazerPedidoCommand implements Command{
                 String cvv = sc.next();
 
                 System.out.println("O cartão é de crédito ou de débito?");
-                System.out.println("Digite:\n[1] para cartão de crédito\n[2] para cartão de crédito");
+                System.out.println("Digite:\n[1] para cartão de crédito\n[2] para cartão de débito");
                 int escolhaCartao = sc.nextInt();
 
                 System.out.print("Digite a quantidade de parcelas: ");
