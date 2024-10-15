@@ -68,6 +68,11 @@ public class Bolo implements Produto {
         }
     }
 
+    @Override
+    public String toString(){
+        return "Bolo";
+    }
+
     public List<ClienteObserver> getClienteObservers() {
         return clienteObservers;
     }

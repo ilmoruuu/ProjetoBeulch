@@ -19,28 +19,23 @@ import java.util.Scanner;
 
 public class FazerPedidoCommand implements Command{
 
-    private Pedido pedido;
     private Cliente cliente;
+    List<Pedido> pedidos;
 
-    public FazerPedidoCommand(Pedido pedido, Cliente cliente){
-        this.pedido = pedido;
+    public FazerPedidoCommand(Cliente cliente, List<Pedido> pedidos) {
         this.cliente = cliente;
+        this.pedidos = pedidos;
     }
 
-    /*
-    * A Launch vai instanciar a classe FazerPedidoCommand com um Pedido e um
-    * Cliente. Através dessa classe, o pedido vai ser feito.
-    *  */
     @Override
     public void execute() {
         Scanner sc = new Scanner(System.in);
         Factory factory = null;
         List<Produto> produtos = new ArrayList<>();
+        Pedido pedido = new Pedido(cliente.getNome());
 
         char continuar = 's';
 
-        // Perguntando ao usuário o que ele gostaria de pedir
-        // e perguntando se ele quer mais algum item
         while (continuar == 's' || continuar == 'S') {
             System.out.println("Você deseja um café, um bolo ou um livro?");
             System.out.println("[1] para café\n[2] para bolo\n[3] para livro");
@@ -68,22 +63,24 @@ public class FazerPedidoCommand implements Command{
             System.out.println("_________________________________________");
         }
 
-        // Perguntando ao usuário qual vai ser a forma de pagamento
         System.out.println("Qual será a forma de pagamento?");
         System.out.println("Digite:\n[1] para pix\n[2] para cartão\n[3] para espécie");
 
         int formaDePagamento = sc.nextInt();
         PagamentoStrategy forma = null;
+
         pedido.setConteudoPedido(produtos);
         float soma = pedido.calcularPagamento();
+        pedido.setValorPedido(soma);
 
         switch (formaDePagamento){
             case 1:
                 System.out.println("Digite o nome do seu banco");
                 String banco = sc.next();
                 forma = new Pix(cliente.getNome(), banco, soma);
+                pedido.setPagamentoStrategy(forma);
                 forma.realizarPagamento(soma);
-                 break;
+                break;
             case 2:
                 System.out.println("Digite o número do seu cartão, validade e seu CVV");
                 String numeroCartao = sc.next();
@@ -105,15 +102,19 @@ public class FazerPedidoCommand implements Command{
                     forma = new Cartao(numeroCartao, cliente.getNome(), validade,
                             cvv, soma, TipoCartao.DEBITO, 1);
                 }
-
+                pedido.setPagamentoStrategy(forma);
                 forma.realizarPagamento(soma);
                 break;
             case 3:
                 forma = new Especie(cliente.getNome(), soma);
+                pedido.setPagamentoStrategy(forma);
                 forma.realizarPagamento(soma);
                 break;
         }
+        pedidos.add(pedido);
 
+        pedido.adicionarObservador(cliente);
         pedido.notificar();
+        System.out.println();
     }
 }

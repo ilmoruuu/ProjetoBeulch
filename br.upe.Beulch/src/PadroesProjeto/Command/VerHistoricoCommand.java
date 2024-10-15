@@ -15,6 +15,12 @@ public class VerHistoricoCommand implements Command{
 
     @Override
     public void execute() {
+        if (pedidosRealizados.isEmpty()){
+            System.out.println("Não houveram pedidos realizados anteriormente");
+            System.out.println();
+            return;
+        }
+
         System.out.println("Aqui está o seu histórico de pedidos");
         System.out.println("_________________________________________");
         for (Pedido p: pedidosRealizados){
@@ -24,7 +30,6 @@ public class VerHistoricoCommand implements Command{
 
     public void desenharPedido(Pedido pedido){
         System.out.printf("Nome do cliente: %s\n", pedido.getNomeCliente());
-        // tem q arrumar essa linha
         System.out.printf("Produto: %s\n", pedido.getConteudoPedido().toString());
         System.out.printf("Valor pago: %.2f\n", pedido.getValorPedido());
         System.out.printf("Tipo de pagamento: %s\n", pedido.getPagamentoStrategy().toString());

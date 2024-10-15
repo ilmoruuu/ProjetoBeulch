@@ -18,7 +18,7 @@ public class Pedido implements Subject {
     private LocalDateTime dataHoraPedido;
     private boolean confirmado;
 
-    public Pedido() {
+    public Pedido(String nomeCliente) {
         this.clientes = new ArrayList<>();
         this.pagamentoStrategy = pagamentoStrategy;
         this.conteudoPedido = conteudoPedido;

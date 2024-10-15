@@ -66,6 +66,11 @@ public class Livro implements Produto {
         }
     }
 
+    @Override
+    public String toString(){
+        return "Livro";
+    }
+
     public List<ClienteObserver> getClienteObservers() {
         return clienteObservers;
     }

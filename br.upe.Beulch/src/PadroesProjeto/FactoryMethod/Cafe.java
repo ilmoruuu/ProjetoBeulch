@@ -66,6 +66,11 @@ public class Cafe implements Produto {
         }
     }
 
+    @Override
+    public String toString(){
+        return "Café";
+    }
+
     public List<ClienteObserver> getClienteObservers() {
         return clienteObservers;
     }
