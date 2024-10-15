@@ -1,12 +1,12 @@
 package PadroesProjeto.FactoryMethod;
 
-import Aplicacao.Produto;
+import Aplicacao.entidades.Produto;
 import PadroesProjeto.Observer.ClienteObserver;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bolo implements Produto{
+public class Bolo implements Produto {
 
         private String nome;
         private float precoAtual;
