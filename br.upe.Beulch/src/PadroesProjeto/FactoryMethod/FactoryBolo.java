@@ -1,6 +1,7 @@
 package PadroesProjeto.FactoryMethod;
 
-import Aplicacao.Produto;
+
+import Aplicacao.entidades.Produto;
 
 public class FactoryBolo extends Factory{
 
