@@ -1,7 +1,7 @@
 package Aplicacao.entidades;
 
-import PadroesProjeto.Observer.ClienteObserver;
-import PadroesProjeto.Observer.Subject;
+import PadroesProjeto.Observer.Notificacao.Interface.ClienteObserver;
+import PadroesProjeto.Observer.Notificacao.Interface.Subject;
 import PadroesProjeto.Strategy.Interface.PagamentoStrategy;
 
 import java.time.LocalDateTime;

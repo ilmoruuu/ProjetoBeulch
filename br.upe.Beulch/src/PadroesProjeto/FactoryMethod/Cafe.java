@@ -1,7 +1,9 @@
 package PadroesProjeto.FactoryMethod;
 
+
+
 import Aplicacao.entidades.Produto;
-import PadroesProjeto.Observer.ClienteObserver;
+import PadroesProjeto.Observer.Notificacao.Interface.ClienteObserver;
 
 import java.util.ArrayList;
 import java.util.List;
