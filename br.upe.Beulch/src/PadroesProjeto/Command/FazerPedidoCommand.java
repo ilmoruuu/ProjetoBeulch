@@ -112,5 +112,7 @@ public class FazerPedidoCommand implements Command{
                 forma.realizarPagamento(soma);
                 break;
         }
+
+        pedido.notificar();
     }
 }

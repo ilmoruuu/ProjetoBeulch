@@ -18,16 +18,14 @@ public class Pedido implements Subject {
     private LocalDateTime dataHoraPedido;
     private boolean confirmado;
 
-    /*public Pedido(PagamentoStrategy pagamentoStrategy,
-                  List<Produto> conteudoPedido, String nomeCliente,
-                  LocalDateTime dataHoraPedido) {
+    public Pedido() {
         this.clientes = new ArrayList<>();
         this.pagamentoStrategy = pagamentoStrategy;
         this.conteudoPedido = conteudoPedido;
         this.nomeCliente = nomeCliente;
         this.dataHoraPedido = dataHoraPedido;
         this.confirmado = false;
-    }*/
+    }
 
     @Override
     public void adicionarObservador(ClienteObserver clienteObserver) {
@@ -72,10 +70,6 @@ public class Pedido implements Subject {
         return clientes;
     }
 
-    public boolean isConfirmado() {
-        return confirmado;
-    }
-
     public PagamentoStrategy getPagamentoStrategy() {
         return pagamentoStrategy;
     }
@@ -101,32 +95,10 @@ public class Pedido implements Subject {
     }
 
     public void setConfirmado(boolean confirmado) {
-        try {
-            System.out.println("Pagamento confirmado!");
-            Thread.sleep(3000);
-
-            System.out.println("Seu pedido estará pronto para retirada em instantes!");
-            Thread.sleep(3000);
-
-            System.out.println("3...");
-            Thread.sleep(3000);
-
-            System.out.println("2...");
-            Thread.sleep(3000);
-
-            System.out.println("1...");
-            Thread.sleep(3000);
-
-            System.out.println("Seu pedido está pronto para ser retirado! Aproveite!");
-            //Isso aq tem q ficar em atualizar
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        notificar();
     }
 
-    public static void main(String[] args) {
-        Pedido pedido = new Pedido();
-        pedido.setConfirmado(true);
+    public boolean isConfirmado() {
+        return confirmado;
     }
-
 }

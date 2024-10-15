@@ -35,8 +35,5 @@ public class Especie implements PagamentoStrategy {
             throw new IllegalArgumentException("O valor recebido é inválido! Tente novamente!");
 
         }
-
-        System.out.println("\nPagamento Realizado com Sucesso!\n\nObrigado! ;)");
-        System.out.println("_________________________________________");
     }
 }

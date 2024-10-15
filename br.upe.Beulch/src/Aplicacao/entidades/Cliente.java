@@ -19,20 +19,33 @@ public class Cliente implements ClienteObserver {
             System.out.println("O produto " + produto.getNome() + " está indisponível no momento.");
         } else {
             System.out.println("O produto " + produto.getNome() + " está disponível no momento.");
-            if (!(produto.getPrecoAtual() == produto.getPrecoAnterior())) {
-                System.out.println("O preço do produto " + produto.getNome() + " mudou!");
-                System.out.println("Novo preço: R$ " + produto.getPrecoAtual());
-            }
+
         }
     }
 
     @Override
     public void atualizar(Pedido pedido) {
-        if(pedido.isConfirmado()){
-            System.out.println("O pedido foi confirmado.");
-        } else {
-            System.out.println("O pedido foi negado.");
-        }
+            try {
+                System.out.println("Pagamento confirmado!");
+                Thread.sleep(3000);
+
+                System.out.println("Seu pedido estará pronto para retirada em instantes!");
+                Thread.sleep(3000);
+
+                System.out.println("3...");
+                Thread.sleep(3000);
+
+                System.out.println("2...");
+                Thread.sleep(3000);
+
+                System.out.println("1...");
+                Thread.sleep(3000);
+
+                System.out.println("Seu pedido está pronto para ser retirado! Aproveite!");
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
     }
 
     public String getNome() {

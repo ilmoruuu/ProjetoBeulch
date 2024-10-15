@@ -34,7 +34,5 @@ public class Pix implements PagamentoStrategy {
 
         System.out.printf("\nPagamento de R$: %.2f\n", valor);
 
-        System.out.println("\nPagamento Realizado com Sucesso!\n\nObrigado! ;)");
-        System.out.println("_____________________________________");
     }
 }

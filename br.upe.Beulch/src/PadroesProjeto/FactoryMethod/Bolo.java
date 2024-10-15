@@ -52,16 +52,8 @@ public class Bolo implements Produto {
         return precoAtual;
     }
 
-    public void setPrecoAtual(float precoAtual) {
-        this.precoAtual = precoAtual;
-    }
-
-    public float getPrecoAnterior() {
-        return precoAnterior;
-    }
-
-    public void setPrecoAnterior(float precoAnterior) {
-        this.precoAnterior = precoAnterior;
+    public void setPrecoAtual(float novoPreco) {
+        this.precoAtual = novoPreco;
     }
 
     @Override
@@ -70,25 +62,13 @@ public class Bolo implements Produto {
     }
 
     @Override
-    public void setDisponibilidade(boolean disponibilidade) {
-        this.disponivel = disponibilidade;
-    }
-
-    @Override
-    public void setPrecoProduto(float valor) {
-        this.precoAtual = valor;
-    }
-
-    public void setDisponivel(boolean disponivel) {
-        this.disponivel = disponivel;
+    public void setDisponibilidade(boolean disponivel) {
+        if(!this.disponivel == disponivel){
+            this.disponivel = disponivel;
+        }
     }
 
     public List<ClienteObserver> getClienteObservers() {
         return clienteObservers;
     }
-
-    public void setClienteObservers(List<ClienteObserver> clienteObservers) {
-        this.clienteObservers = clienteObservers;
-    }
-
 }

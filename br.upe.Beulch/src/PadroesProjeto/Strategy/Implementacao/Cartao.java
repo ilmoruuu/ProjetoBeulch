@@ -65,8 +65,6 @@ public class Cartao implements PagamentoStrategy {
         for (int i = 1; i <= parcelas; i++) {
             System.out.printf("Parcela %d de R$: %.2f\n", i, valorParcelas);
         }
-        System.out.println("\nPagamento Realizado com Sucesso!\nObrigado! ;)");
-        System.out.println("_________________________________________");
     }
 
     private void realizarPagamentoDebito(float valor, String dataFormatada) {
@@ -82,7 +80,5 @@ public class Cartao implements PagamentoStrategy {
         }
 
         System.out.printf("\nPagamento de R$: %.2f\n", valorFinal);
-        System.out.println("\nPagamento Realizado com Sucesso!\n\nObrigado! ;)");
-        System.out.println("________________________________________");
     }
 }

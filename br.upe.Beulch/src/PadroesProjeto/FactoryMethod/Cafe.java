@@ -1,7 +1,5 @@
 package PadroesProjeto.FactoryMethod;
 
-
-
 import Aplicacao.entidades.Produto;
 import PadroesProjeto.Observer.Notificacao.Interface.ClienteObserver;
 
@@ -12,7 +10,6 @@ public class Cafe implements Produto {
 
     private String nome;
     private float precoAtual = 3;
-    private float precoAnterior;
     private boolean disponivel;
     private List<ClienteObserver> clienteObservers;
 
@@ -20,7 +17,6 @@ public class Cafe implements Produto {
         this.nome = nome;
         this.clienteObservers = new ArrayList<>();
         this.disponivel = true;
-        this.precoAnterior = precoAtual;
     }
 
     @Override
@@ -54,16 +50,8 @@ public class Cafe implements Produto {
         return precoAtual;
     }
 
-    public void setPrecoAtual(float precoAtual) {
-        this.precoAtual = precoAtual;
-    }
-
-    public float getPrecoAnterior() {
-        return precoAnterior;
-    }
-
-    public void setPrecoAnterior(float precoAnterior) {
-        this.precoAnterior = precoAnterior;
+    public void setPrecoAtual(float novoPreco) {
+        this.precoAtual = novoPreco;
     }
 
     @Override
@@ -73,19 +61,12 @@ public class Cafe implements Produto {
 
     @Override
     public void setDisponibilidade(boolean disponivel) {
-        if(!(this.disponivel == disponivel)){
+        if(!this.disponivel == disponivel){
             this.disponivel = disponivel;
-            notificar();
         }
     }
 
-    @Override
-    public void setPrecoProduto(float valor) {
-        if(!(this.precoAtual == valor)){
-            precoAnterior = precoAtual;
-            precoAtual = valor;
-            notificar();
-        }
+    public List<ClienteObserver> getClienteObservers() {
+        return clienteObservers;
     }
-
 }
