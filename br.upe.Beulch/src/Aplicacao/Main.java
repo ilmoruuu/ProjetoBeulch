@@ -21,6 +21,8 @@ public class Main {
         Factory livroFactory = new FactoryLivro();
         Produto livro = livroFactory.criarProduto("Padroes de Projeto", 35678);
 
+        Factory boloFactory = new FactoryBolo();
+        Produto bolo = boloFactory.criarProduto("chocolate", 567);
 
         produto1.adicionarObservador(cliente1);
         produto1.setDisponibilidade(true);

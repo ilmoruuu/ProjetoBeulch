@@ -2,7 +2,7 @@ package Aplicacao;
 
 import PadroesProjeto.Observer.ClienteObserver;
 import PadroesProjeto.Observer.Subject;
-import PadroesProjeto.Strategy.PagamentoStrategy;
+import PadroesProjeto.Strategy.Pagamento.Interface.PagamentoStrategy;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
