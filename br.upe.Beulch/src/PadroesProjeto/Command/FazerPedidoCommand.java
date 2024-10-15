@@ -94,16 +94,16 @@ public class FazerPedidoCommand implements Command{
                 System.out.println("Digite:\n[1] para cartão de crédito\n[2] para cartão de débito");
                 int escolhaCartao = sc.nextInt();
 
-                System.out.print("Digite a quantidade de parcelas: ");
-                int parcelas = sc.nextInt();
-
                 if (escolhaCartao == 1){
+                    System.out.print("Digite a quantidade de parcelas: ");
+                    int parcelas = sc.nextInt();
+
                     forma = new Cartao(numeroCartao, cliente.getNome(), validade,
                             cvv, soma, TipoCartao.CREDITO, parcelas);
                 }
                 else {
                     forma = new Cartao(numeroCartao, cliente.getNome(), validade,
-                            cvv, soma, TipoCartao.DEBITO, parcelas);
+                            cvv, soma, TipoCartao.DEBITO, 1);
                 }
 
                 forma.realizarPagamento(soma);

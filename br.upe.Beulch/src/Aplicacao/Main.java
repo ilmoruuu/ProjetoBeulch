@@ -43,5 +43,9 @@ public class Main {
 
         Command command = new FazerPedidoCommand(pedido, cliente);
         command.execute();
+
+        // Pedido pedido = new Pedido
+        // pedido.
     }
+
 }
