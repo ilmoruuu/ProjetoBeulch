@@ -34,17 +34,20 @@ public class Launch {
         while(continuar){
             System.out.printf("O que você deseja fazer, %s?\n", cliente.getNome());
             System.out.println("Digite:\n[1] Fazer Pedido\n[2] Ver histórico\n[3] sair");
-            int escolha = scan.nextInt();
-            if (escolha == 3){
+            String escolha = scan.nextLine();
+
+            if (escolha.equals("3")){
                 continuar = false;
             }
-            else if (escolha == 1) {
+            else if (escolha.equals("1")) {
                 Command fazerPedidoCommand = new FazerPedidoCommand(cliente, pedidos);
                 fazerPedidoCommand.execute();
             }
-            else if(escolha == 2){
+            else if(escolha.equals("2")){
                 Command verHistoricoCommand = new VerHistoricoCommand(pedidos);
                 verHistoricoCommand.execute();
+            } else {
+                System.out.println("Digite algo válido! Apenas números entre 1 e 3.");
             }
         }
         System.out.println("Nos vemos depois, até mais!");
