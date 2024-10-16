@@ -36,14 +36,14 @@ public class Launch {
             System.out.println("Digite:\n[1] Fazer Pedido\n[2] Ver histórico\n[3] sair");
             String escolha = scan.nextLine();
 
-            if (escolha.equals("1")){
+            if (escolha.equals("3")){
                 continuar = false;
             }
-            else if (escolha.equals("2")) {
+            else if (escolha.equals("1")) {
                 Command fazerPedidoCommand = new FazerPedidoCommand(cliente, pedidos);
                 fazerPedidoCommand.execute();
             }
-            else if(escolha.equals("3")){
+            else if(escolha.equals("2")){
                 Command verHistoricoCommand = new VerHistoricoCommand(pedidos);
                 verHistoricoCommand.execute();
 
