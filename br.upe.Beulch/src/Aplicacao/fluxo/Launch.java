@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Launch {
-
+    
     public static void iniciar(){
         Scanner scan  = new Scanner(System.in);
         System.out.println("_____________BEM_VINDO______________");
